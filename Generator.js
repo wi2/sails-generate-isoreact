@@ -2,73 +2,38 @@
  * Module dependencies
  */
 
-var util = require('util');
-var _ = require('lodash');
+var util = require('util')
+  , _ = require('lodash')
+  , fs = require('fs')
+  , NPM = require('machinepack-npm');
+
 _.defaults = require('merge-defaults');
 
 
-/**
- * sails-generate-sails-generate-isoreact
- *
- * Usage:
- * `sails generate sails-generate-isoreact`
- *
- * @description Generates a sails-generate-isoreact
- * @help See http://links.sailsjs.org/docs/generators
- */
 
 module.exports = {
 
-  /**
-   * `before()` is run before executing any of the `targets`
-   * defined below.
-   *
-   * This is where we can validate user input, configure default
-   * scope variables, get extra dependencies, and so on.
-   *
-   * @param  {Object} scope
-   * @param  {Function} cb    [callback]
-   */
 
-  // before: function (scope, cb) {
+  before: function (scope, cb) {
+    fs.unlink('tasks/config/watch.js', function (err) {
+      if (err) throw err;
+      console.log('successfully deleted /tasks/config/watch.js');
+      fs.unlink('tasks/register/compileAssets.js', function (err) {
+        if (err) throw err;
+        console.log('successfully deleted /tasks/register/compileAssets.js');
+        cb();
+      });
+    });
+  },
 
-  //   // scope.args are the raw command line arguments.
-  //   //
-  //   // e.g. if someone runs:
-  //   // $ sails generate sails-generate-isoreact user find create update
-  //   // then `scope.args` would be `['user', 'find', 'create', 'update']`
-  //   if (!scope.args[0]) {
-  //     return cb( new Error('Please provide a name for this sails-generate-isoreact.') );
-  //   }
-
-  //   // scope.rootPath is the base path for this generator
-  //   //
-  //   // e.g. if this generator specified the target:
-  //   // './Foobar.md': { copy: 'Foobar.md' }
-  //   //
-  //   // And someone ran this generator from `/Users/dbowie/sailsStuff`,
-  //   // then `/Users/dbowie/sailsStuff/Foobar.md` would be created.
-  //   if (!scope.rootPath) {
-  //     return cb( INVALID_SCOPE_VARIABLE('rootPath') );
-  //   }
-
-
-  //   // Attach defaults
-  //   _.defaults(scope, {
-  //     createdAt: new Date()
-  //   });
-
-  //   // Decide the output filename for use in targets below:
-  //   scope.filename = scope.args[0];
-
-  //   // Add other stuff to the scope for use in our templates:
-  //   scope.whatIsThis = 'an example file created at '+scope.createdAt;
-
-  //   // When finished, we trigger a callback with no error
-  //   // to begin generating files/folders as specified by
-  //   // the `targets` below.
-  //   cb();
-  // },
+  after: function (scope, cb) {
+    var packages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
+    for(var i=0; i< packages.length; i++) {
+      NPM.installPackage({name: packages[i], save: true}).exec(function(){
+        console.log(" installé");
+      });
+    }
+  },
 
 
 

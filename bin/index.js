@@ -4,7 +4,7 @@
 
 var sailsgen = require('sails-generate')
 	, path = require('path')
-	, NPM = require('machinepack-npm');;
+	, NPM = require('machinepack-npm');
 
 
 
@@ -30,6 +30,13 @@ sailsgen(scope, function (err) {
 	var packages = ['react', 'react-router', 'sails-react-store', 'react-image-es6'];
 	for(var i=0; i< packages.length; i++) {
 		NPM.installPackage({name: packages[i], save: true}).exec(function(){
+			console.log(" installé");
+		});
+	}
+
+	var devpackages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify'];
+	for(var i=0; i< devpackages.length; i++) {
+		NPM.installPackage({name: devpackages[i], savedev: true}).exec(function(){
 			console.log(" installé");
 		});
 	}
