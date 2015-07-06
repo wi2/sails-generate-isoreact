@@ -27,12 +27,20 @@ module.exports = {
   },
 
   after: function (scope, cb) {
-    var packages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
+    var packages = ['sails-hook-babel', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
     for(var i=0; i< packages.length; i++) {
       NPM.installPackage({name: packages[i], save: true}).exec(function(){
         console.log(" installé");
       });
     }
+
+    // var devpackages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify'];
+    // for(var i=0; i< devpackages.length; i++) {
+    //   NPM.installPackage({name: devpackages[i], saveDev: true}).exec(function(){
+    //     console.log(" installé");
+    //   });
+    // }
+
   },
 
 
@@ -44,8 +52,9 @@ module.exports = {
 
   targets: {
 
-    //add browserify to config
+    //add browserify and update watch to config
     './tasks/config/browserify.js': { template: 'tasks/config/browserify.js' },
+    './tasks/config/watch.js': { template: 'tasks/config/watch.js' },
     //replace compilleAssets.js : add browserify to register
     './tasks/register/compileAssets.js': { template: 'tasks/register/compileAssets.js' },
 
@@ -84,9 +93,9 @@ module.exports = {
 
 function INVALID_SCOPE_VARIABLE (varname, details, message) {
   var DEFAULT_MESSAGE =
-  'Issue encountered in generator "sails-generate-isoreact":\n'+
+  'Issue encountered in generator "isoreact":\n'+
   'Missing required scope variable: `%s`"\n' +
-  'If you are the author of `sails-generate-sails-generate-isoreact`, please resolve this '+
+  'If you are the author of `sails-generate-isoreact`, please resolve this '+
   'issue and publish a new patch release.';
 
   message = (message || DEFAULT_MESSAGE) + (details ? '\n'+details : '');
