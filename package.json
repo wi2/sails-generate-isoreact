@@ -1,0 +1,36 @@
+{
+  "name": "sails-generate-isoreact",
+  "version": "0.11.0",
+  "description": "sails generate isoreact",
+  "main": "Generator.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "isoreact",
+    "generator",
+    "sails",
+    "isomorph",
+    "react",
+    "grunt",
+    "generate",
+    "plugin"
+  ],
+  "author": "wi2",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": ">=2.4.x",
+    "machinepack-npm": "^5.1.0",
+    "merge-defaults": ">=0.1.0"
+  },
+  "devDependencies": {
+    "sails-generate": "*",
+    "reportback": "*",
+    "fs-extra": "*"
+  },
+  "sailsGenerator": {
+    "type": "isoreact",
+    "behavior": "overrides `sails generate isoreact`",
+    "sailsVersion": "~0.11.0"
+  }
+}
