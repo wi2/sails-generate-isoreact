@@ -27,7 +27,7 @@ module.exports = {
   },
 
   after: function (scope, cb) {
-    var packages = ['sails-hook-babel', 'browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
+    var packages = ['sails-hook-babel', 'browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store'];
     for(var i=0; i< packages.length; i++) {
       NPM.installPackage({name: packages[i], save: true}).exec(function(){
         console.log(" installé");

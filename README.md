@@ -6,20 +6,46 @@ Certain generators are installed by default in Sails, but they can be overridden
 
 
 
+### dependencies : Browserify
+```sh
+$ npm install -g browserify
+```
+
+
 ### Installation
 
+Generate your sails app
+```sh
+$ sails generate new myApp
+```
+
+add browserifiy and dependencies
 ```sh
 $ npm install sails-generate-isoreact
 ```
 
 
+By default : sails-hook-babel, browserify, grunt-browserify, grunt-react, babelify, react, react-router, sails-react-store
+
+Maybe, you need install grunt-browserify with sudo
+
+
 ### Usage
 
-##### On the command line
+#### On the command line
+
+##### First prepare your dependencies in your assets :
+```sh
+$ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
+```
+
 
 ```sh
 $ sails generate isoreact
 ```
+
+### Starting
+see components's folder for starting
 
 
 
