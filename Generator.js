@@ -27,7 +27,7 @@ module.exports = {
   },
 
   after: function (scope, cb) {
-    var packages = ['sails-hook-babel', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
+    var packages = ['sails-hook-babel', 'browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
     for(var i=0; i< packages.length; i++) {
       NPM.installPackage({name: packages[i], save: true}).exec(function(){
         console.log(" installé");
@@ -58,8 +58,15 @@ module.exports = {
     //replace compilleAssets.js : add browserify to register
     './tasks/register/compileAssets.js': { template: 'tasks/register/compileAssets.js' },
 
-    // Creates a folder for es6 react components
-    './components': { folder: {} }
+    // Creates a folder for es6 react components and bootstrap example
+    './components': { folder: {} },
+    './components/pages': { folder: {} },
+    './components/partials': { folder: {} },
+    './components/pages/home.js': { template: 'components/pages/home.js' },
+    './components/partials/nav.js': { template: 'components/partials/nav.js' },
+    './components/layout.js': { template: 'components/layout.js' },
+    './components/routes.js': { template: 'components/routes.js' },
+    './components/app.js': { template: 'components/app.js' }
 
   },
 

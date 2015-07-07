@@ -14,14 +14,14 @@ module.exports = function(grunt) {
 
   grunt.config.set('browserify', {
     options: {
-      external: ['react', 'react-router', 'sails-react-store', 'react-image-es6', 'react-youtube', 'events'],
+      external: ['react', 'react-router', 'sails-react-store', 'react-image-es6'],
       transform: [
         [require("babelify"), require('grunt-react').browserify]
       ],
       harmony: true
     },
     dev: {
-      src: ['./components/**/*.jsx','./components/**/*.js'],
+      src: ['./components/**/*.jsx','./components/**/*.js','./components/*.js'],
       dest: './assets/js/bundle.js'
     }
   });

@@ -1,6 +1,6 @@
 {
   "name": "sails-generate-isoreact",
-  "version": "0.11.7",
+  "version": "0.11.8",
   "description": "sails generate isoreact",
   "main": "Generator.js",
   "scripts": {
