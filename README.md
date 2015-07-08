@@ -38,6 +38,14 @@ Maybe, you need install grunt-browserify with sudo
 ```sh
 $ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
 ```
+##### then do
+```sh
+$ sails generate isoreact
+```
+
+
+### Starting
+see components's folder for starting
 
 ##### Example controller
 ```
@@ -63,13 +71,6 @@ module.exports = {
 
 ```
 
-
-```sh
-$ sails generate isoreact
-```
-
-### Starting
-see components's folder for starting
 
 
 
