@@ -39,6 +39,30 @@ Maybe, you need install grunt-browserify with sudo
 $ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
 ```
 
+##### Example controller
+```
+var React = require('react')
+  , Router = require('react-router')
+  , routes = require('../../components/route.jsx');
+
+module.exports = {
+  home: function(req, res) {
+    Router.run(routes, "home", function(Root){
+        res.view("layout", {
+          locals: {
+            title: 'My home',
+            description: 'my sweet home'
+          },
+          body: React.renderToString(<Root />)
+        });
+      });
+    });
+  },
+
+...
+
+```
+
 
 ```sh
 $ sails generate isoreact
