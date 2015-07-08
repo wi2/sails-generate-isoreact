@@ -1,9 +1,10 @@
-let React = require('react')
-  , Router = require('react-router')
-  , Route = Router.Route;
+"use strict";
+
+import React from 'react'
+import {RouteHandler, Route} from 'react-router'
 
 module.exports = (
-  <Route handler={Router.RouteHandler}>
+  <Route handler={RouteHandler}>
     <Route name="home" path="/" handler={require('./pages/home.js')} />
   </Route>
 );
