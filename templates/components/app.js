@@ -6,7 +6,7 @@ if (typeof window !== "undefined") {
 
   window.onload = function() {
     Router.run(require('./routes.js'), Router.HashLocation, (Root) => {
-      React.render(<Root/>, document.getElementById('layout'));
+      React.render(<Root/>, document.body);
     });
     if (document.location.pathname !== "/" && document.location.hash !== '')
       document.location.href = document.location.pathname+"#"+document.location.pathname;
