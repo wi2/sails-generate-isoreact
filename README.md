@@ -22,10 +22,12 @@ $ sails generate new myApp
 add browserifiy and dependencies
 ```sh
 $ npm install sails-generate-isoreact
+
+$ npm install -g browserify
+
+$ npm install sails-hook-babel grunt-browserify grunt-react babelify react react-router sails-react-store --save
+
 ```
-
-
-By default : sails-hook-babel, browserify, grunt-browserify, grunt-react, babelify, react, react-router, sails-react-store
 
 Maybe, you need install grunt-browserify with sudo
 
