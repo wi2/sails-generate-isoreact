@@ -27,12 +27,21 @@ module.exports = {
   },
 
   after: function (scope, cb) {
-    var packages = ['sails-hook-babel', 'browserify', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store'];
-    for(var i=0; i< packages.length; i++) {
-      NPM.installPackage({name: packages[i], save: true}).exec(function(){
-        console.log(" installé");
-      });
-    }
+    var packages = ['sails-hook-babel', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store'];
+    console.log("install browserify : " + "npm install -g browserify");
+    console.log("");
+    console.log("you need to install dependencies, copy this : ");
+    console.log("npm install --save " + packages.split(" "));
+    console.log("if error, maybe you need sudo");
+    console.log("");
+    console.log("");
+    console.log("Done");
+    //don't work very well
+    // for(var i=0; i< packages.length; i++) {
+    //   NPM.installPackage({name: packages[i], save: true}).exec(function(){
+    //     console.log(" installé");
+    //   });
+    // }
 
     // var devpackages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify'];
     // for(var i=0; i< devpackages.length; i++) {
