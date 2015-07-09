@@ -31,7 +31,7 @@ module.exports = {
     console.log("install browserify : " + "npm install -g browserify");
     console.log("");
     console.log("you need to install dependencies, copy this : ");
-    console.log("npm install --save " + packages.split(" "));
+    console.log("npm install --save " + packages.join(" "));
     console.log("if error, maybe you need sudo");
     console.log("");
     console.log("");
