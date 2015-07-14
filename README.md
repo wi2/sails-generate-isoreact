@@ -34,13 +34,13 @@ Maybe, you need install grunt-browserify with sudo
 
 #### On the command line
 
-##### First prepare your dependencies in your assets :
+##### First install with :
 ```sh
-$ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
+$ sails generate isoreact
 ```
 ##### then do
 ```sh
-$ sails generate isoreact
+$ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
 ```
 
 
