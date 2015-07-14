@@ -5,10 +5,31 @@
 var util = require('util')
   , _ = require('lodash')
   , fs = require('fs')
-  , NPM = require('machinepack-npm');
+  , NPM = require('machinepack-npm')
+  , packages = [
+    'sails-hook-babel',
+    'grunt-browserify',
+    'grunt-react',
+    'babelify',
+    'react',
+    'react-router',
+    'sails-react-store'
+    ];
 
 _.defaults = require('merge-defaults');
 
+function installer(next) {
+  if (packages.length === 0)
+    next();
+  else {
+    var lib = packages.shift();
+    console.log("prepare install for: " + lib);
+    NPM.installPackage({name: lib, save: true}).exec(function(){
+      console.log(lib + " installé");
+      installer(next);
+    });
+  }
+}
 
 
 module.exports = {
@@ -27,28 +48,13 @@ module.exports = {
   },
 
   after: function (scope, cb) {
-    var packages = ['sails-hook-babel', 'grunt-browserify', 'grunt-react', 'babelify', 'react', 'react-router', 'sails-react-store'];
-    console.log("install browserify : " + "npm install -g browserify");
-    console.log("");
-    console.log("you need to install dependencies, copy this : ");
-    console.log("npm install --save " + packages.join(" "));
-    console.log("if error, maybe you need sudo");
-    console.log("");
-    console.log("");
-    console.log("Done");
-    //don't work very well
-    // for(var i=0; i< packages.length; i++) {
-    //   NPM.installPackage({name: packages[i], save: true}).exec(function(){
-    //     console.log(" installé");
-    //   });
-    // }
-
-    // var devpackages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify'];
-    // for(var i=0; i< devpackages.length; i++) {
-    //   NPM.installPackage({name: devpackages[i], saveDev: true}).exec(function(){
-    //     console.log(" installé");
-    //   });
-    // }
+    installer(function() {
+      console.log("");
+      console.log("install browserify : " + "npm install -g browserify");
+      console.log("");
+      console.log("Done");
+      cb();
+    });
 
   },
 

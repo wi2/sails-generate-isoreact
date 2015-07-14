@@ -27,20 +27,6 @@ var scope = {
 sailsgen(scope, function (err) {
 	if (err) throw err;
 
-	// var packages = ['sails-hook-babel', 'react', 'react-router', 'sails-react-store', 'react-image-es6'];
-	// for(var i=0; i< packages.length; i++) {
-	// 	NPM.installPackage({name: packages[i], save: true}).exec(function(){
-	// 		console.log(" installé");
-	// 	});
-	// }
-
-	// var devpackages = ['browserify', 'grunt-browserify', 'grunt-react', 'babelify'];
-	// for(var i=0; i< devpackages.length; i++) {
-	// 	NPM.installPackage({name: devpackages[i], savedev: true}).exec(function(){
-	// 		console.log(" installé");
-	// 	});
-	// }
-
 	// It worked.
 	console.log('start install react, react-router, ....');
 });
