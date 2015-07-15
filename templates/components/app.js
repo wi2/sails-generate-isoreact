@@ -1,13 +1,7 @@
+var React = require('react')
+, Router = require('react-router');
 
-if (typeof window !== "undefined") {
-
-  var React = require('react')
-  , Router = require('react-router');
-
-  window.onload = function() {
-    Router.run(require('./routes.js'), Router.HistoryLocation, (Root) => {
-      React.render(<Root/>, document.body);
-    });
-  }
-
-}
+Router.run(require('./route.jsx'), Router.HistoryLocation, (Root) => {
+  React.render(<Root {...window.__ReactInitState__}/>, document.body);
+  delete window.__ReactInitState__;
+});
