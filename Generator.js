@@ -83,6 +83,10 @@ module.exports = {
     './components/routes.js': { template: 'components/routes.js' },
     './components/app.js': { template: 'components/app.js' }
 
+    // services
+    './api/services/renderTo.js': { template: 'api/services/renderTo.js' },
+
+
   },
 
 
