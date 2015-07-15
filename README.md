@@ -17,13 +17,8 @@ $ npm install -g browserify
 Generate your sails app
 ```sh
 $ sails generate new myApp
-```
 
-add browserifiy and dependencies
-```sh
 $ npm install sails-generate-isoreact
-
-$ npm install -g browserify
 
 ```
 
