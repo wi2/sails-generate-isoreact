@@ -37,12 +37,17 @@ $ sails generate isoreact
 ```sh
 $ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
 ```
+##### finally add this in your layout.ejs before your scripts
+```html
+<script type="text/javascript"><%- locals.state||'' %></script>
+```
+
 
 
 ### Starting
 see components's folder for starting
 
-##### Example controller
+##### Example Simple controller
 ```
 var React = require('react')
   , Router = require('react-router')
@@ -59,6 +64,25 @@ module.exports = {
           body: React.renderToString(<Root />)
         });
       });
+    });
+  },
+
+...
+
+```
+
+
+##### Example with renderTo service
+```
+var routes = require('../../components/route.jsx');
+
+module.exports = {
+  home: function(req, res) {
+    renderTo(routes, res.view, '/', {title:'home'})
+  },
+  post: function(req, res) {
+    Post.find().exec(function(err, posts){
+      renderTo(routes, res.view, '/articles', {title:'articles'}, {posts:posts});
     });
   },
 
