@@ -1,9 +1,15 @@
 # sails-generate-isoreact
 
-A `isoreact` generator for use with the Sails command-line interface.
+A `isomorphic react app` generator for use with the Sails command-line interface.
 
 Certain generators are installed by default in Sails, but they can be overridden.  Other generators create entirely new things.  Check the [Sails docs](http://sailsjs.org/#!documentation) for information on installing generator overrides / custom generators and information on building your own generators.
 
+## Isomorphic bootstrap App with react
+
+#### install by default
+- react,
+- react-router, for routing app
+- sails-react-store : wrap sails.socket.io with bluebrint method with 2 reactComponent (Item and CollectionItem)
 
 
 ### dependencies : Browserify
@@ -34,7 +40,12 @@ Maybe, you need install grunt-browserify with sudo
 ##### First install with :
 ```sh
 $ sails generate isoreact
+
+$ npm i --save sails-hook-babel grunt-browserify
+
 ```
+maybe use sudo
+
 ##### then do
 ```sh
 $ browserify -r react -r react-router -r sails-react-store > assets/js/dependencies/build.js
@@ -53,7 +64,7 @@ see components's folder for starting
 ```
 var React = require('react')
   , Router = require('react-router')
-  , routes = require('../../components/route.jsx');
+  , routes = require('../../components/routes.js');
 
 module.exports = {
   home: function(req, res) {
@@ -76,15 +87,15 @@ module.exports = {
 
 ##### Example with renderTo service
 ```
-var routes = require('../../components/route.jsx');
+var routes = require('../../components/routes.js');
 
 module.exports = {
   home: function(req, res) {
     renderTo(routes, res.view, '/', {title:'home'})
   },
-  post: function(req, res) {
+  articles: function(req, res) {
     Post.find().exec(function(err, posts){
-      renderTo(routes, res.view, '/articles', {title:'articles'}, {posts:posts});
+      renderTo(routes, res.view, '/articles', {title:'articles'}, {items:posts});
     });
   },
 
@@ -92,6 +103,16 @@ module.exports = {
 
 ```
 
+##### example routes
+```
+...
+
+  '/': 'HomeController.home',
+
+  '/articles': 'HomeController.articles'
+
+...
+```
 
 
 

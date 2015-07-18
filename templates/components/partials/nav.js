@@ -1,12 +1,18 @@
 "use strict";
 
 import React from 'react'
-import {ReactBase} from 'sails-react-store'
+import {Link} from 'react-router'
 
-export class Nav extends ReactBase {
+export class Nav {
   render() {
     return (
-      <div id="nav" className="nav">Nav</div>
+      <div id="nav" className="nav">
+        <ul>
+          <li>
+            <Link to="home">Home</Link>
+          </li>
+        </ul>
+      </div>
     )
   }
 }

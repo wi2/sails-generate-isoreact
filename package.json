@@ -1,6 +1,6 @@
 {
   "name": "sails-generate-isoreact",
-  "version": "0.11.19",
+  "version": "0.11.20",
   "description": "sails generate isomorph react",
   "main": "Generator.js",
   "scripts": {
