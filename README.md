@@ -18,6 +18,8 @@ Generate your sails app
 ```sh
 $ sails generate new myApp
 
+$ cd myApp
+
 $ npm install sails-generate-isoreact
 
 ```

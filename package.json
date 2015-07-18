@@ -1,7 +1,7 @@
 {
   "name": "sails-generate-isoreact",
-  "version": "0.11.18",
-  "description": "sails generate isoreact",
+  "version": "0.11.19",
+  "description": "sails generate isomorph react",
   "main": "Generator.js",
   "scripts": {
     "test": "mocha"

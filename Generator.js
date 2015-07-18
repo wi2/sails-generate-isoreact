@@ -81,10 +81,10 @@ module.exports = {
     './components/partials/nav.js': { template: 'components/partials/nav.js' },
     './components/layout.js': { template: 'components/layout.js' },
     './components/routes.js': { template: 'components/routes.js' },
-    './components/app.js': { template: 'components/app.js' }
+    './components/app.js': { template: 'components/app.js' },
 
     // services
-    './api/services/renderTo.js': { template: 'api/services/renderTo.js' },
+    './api/services/renderTo.js': { template: 'api/services/renderTo.js' }
 
 
   },
