@@ -9,9 +9,11 @@ var util = require('util')
   , packages = [
     'sails-hook-babel',
     'grunt-browserify',
-    'grunt-react',
     'babelify',
+    'babel-preset-es2015',
+    'babel-preset-react',
     'react',
+    'react-dom',
     'react-router',
     'sails-react-store'
     ];
