@@ -1,10 +1,14 @@
 "use strict";
 
 import React from 'react'
-import {RouteHandler, Route} from 'react-router'
+import {Router, Route} from 'react-router'
+
+import Layout from './layout'
+import Home from './pages/home'
 
 module.exports = (
-  <Route handler={RouteHandler}>
-    <Route name="home" path="/" handler={require('./pages/home.js')} />
+  <Route component={Layout}>
+    <Route path="/" component={Home} />
   </Route>
 );
+
