@@ -27,14 +27,6 @@ module.exports = function(grunt) {
 
 			// When assets are changed:
 			tasks: ['syncAssets' , 'linkAssets']
-		},
-		react: {
-
-			// components to watch:
-			files: ['components/**/*.*'],
-
-			// When components are changed:
-			tasks: ['compileAssets']
 		}
 	});
 

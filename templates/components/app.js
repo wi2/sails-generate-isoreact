@@ -1,7 +1,11 @@
-var React = require('react')
-, Router = require('react-router');
 
-Router.run(require('./routes.js'), Router.HistoryLocation, (Root) => {
-  React.render(<Root {...window.__ReactInitState__}/>, document.body);
-  delete window.__ReactInitState__;
-});
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, Link } from 'react-router'
+import { createHistory } from 'history'
+import routes from './routes'
+
+let history = createHistory();
+
+render( <Router history={history}>{routes}</Router>, document.getElementById("app"));
+
