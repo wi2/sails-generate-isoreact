@@ -14,11 +14,10 @@ module.exports = function(grunt) {
 
   grunt.config.set('browserify', {
     options: {
-      external: ['react', 'react-router', 'sails-react-store'],
       transform: [
-        [require("babelify"), require('grunt-react').browserify]
+        ["babelify", {presets: ["es2015", "react"]}]
       ],
-      harmony: true
+      watch: true
     },
     dev: {
       src: ['./components/**/*.jsx','./components/**/*.js','./components/*.js'],
